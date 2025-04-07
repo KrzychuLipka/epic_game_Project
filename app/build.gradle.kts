@@ -1,6 +1,7 @@
-    plugins {
+plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -48,4 +49,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.google.play.services.location)
     implementation(libs.android.beacon.library)
+    implementation(libs.androidx.room.runtime)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+}
+kapt {
+    correctErrorTypes = true
 }

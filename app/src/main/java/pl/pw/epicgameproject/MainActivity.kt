@@ -274,6 +274,7 @@ class MainActivity : AppCompatActivity() {
                 setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
             }
             mapView.overlays.add(deviceMarker)
+
         } else {
             deviceMarker!!.position = GeoPoint(latitude, longitude)
         }

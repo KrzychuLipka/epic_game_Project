@@ -13,6 +13,7 @@ osmdroidAndroid = "6.1.20"
 playServicesLocation = "21.3.0"
 androidBeaconLibrary = "2.19.4"
 gson = "2.12.1"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +28,9 @@ google-play-services-location = { group = "com.google.android.gms", name = "play
 android-beacon-library = { group = "org.altbeacon", name = "android-beacon-library", version.ref = "androidBeaconLibrary" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "osmdroidAndroid" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
