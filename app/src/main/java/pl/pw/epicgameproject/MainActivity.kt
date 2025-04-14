@@ -31,9 +31,13 @@ import android.preference.PreferenceManager
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.util.GeoPoint
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
+import pl.pw.epicgameproject.data.DashboardViewModel
 
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -48,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.map_view)
     }
     private var deviceMarker: Marker? = null
+    private val dashboardViewModel: DashboardViewModel by viewModels()
 
 
     private val requestPermissionLauncher =
@@ -228,6 +233,7 @@ class MainActivity : AppCompatActivity() {
             val estimatedLongitude = weightedLongitudeSum / weightSum
             Log.d(TAG, "Szacowana pozycja: Latitude: $estimatedLatitude, Longitude: $estimatedLongitude")
             updateMarker(estimatedLatitude, estimatedLongitude)
+            dashboardViewModel.saveLocation(estimatedLatitude, estimatedLongitude)
 
         } else {
             Log.d(TAG, "Nie można oszacować pozycji - brak poprawnych danych.")
